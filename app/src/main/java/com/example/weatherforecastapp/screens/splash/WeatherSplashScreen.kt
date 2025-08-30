@@ -1,6 +1,7 @@
 package com.example.weatherforecastapp.screens.splash
 
 import android.icu.number.Scale
+import android.util.Log
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
@@ -48,7 +49,7 @@ fun WeatherSplashScreen(navController: NavController, settingsViewModel: Setting
 
     val backgroundAnim = rememberInfiniteTransition()
     val sunColorAnim = rememberInfiniteTransition()
-
+    Log.d("SplashScreen", "Inside the weather splash screen ")
     val backgroundColor by backgroundAnim.animateColor(
         initialValue = Color(0xFFE1F5FE),
         targetValue = Color(0xFFFFC107),
@@ -98,6 +99,9 @@ fun WeatherSplashScreen(navController: NavController, settingsViewModel: Setting
 
     LaunchedEffect(key1 = true) {
         delay(2000L)
+        Log.d("SplashScreen", "Before navigating to the mainscreen")
+
         navController.navigate(WeatherScreens.MainScreen.name + "/$defaultCity")
+         Log.d("SplashScreen", "After navigating to the mainscreen")
     }
 }

@@ -2,7 +2,9 @@ package com.example.weatherforecastapp.screens.main
 
 import WeatherAppBar
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -11,6 +13,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontStyle.Companion.Italic
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -38,6 +43,7 @@ fun MainScreen(
     settingsViewModel: SettingsViewModel= hiltViewModel(),
     city: String
 ){
+    Log.d("MainScreen", "Inside the main screen")
     val currCity:String = if(city.isBlank()) "Seattle" else city
     val unitFromDb = settingsViewModel.unitList.collectAsState().value
     var unit by remember {
@@ -52,8 +58,12 @@ fun MainScreen(
         val weatherData= produceState<DataOrException<Weather,Boolean,Exception>>(initialValue = DataOrException(loading = true)){
             value=mainViewModel.getWeatherData(city=currCity,units=unit)
         }.value
+        Log.d("MainScreen","The value of the weather data is $weatherData")
         if(weatherData.loading==true){
             CircularProgressIndicator()
+        }
+        if(weatherData.data==null){
+            showErrorComposable()
         }
         else if(weatherData.data!=null){
             MainScaffold(weather=weatherData.data!!,navController,isImperial=isImperial)
@@ -63,6 +73,15 @@ fun MainScreen(
 //        Text(text="Main Screen")
 //    }
 
+}
+
+@Composable
+@Preview
+fun showErrorComposable() {
+     Row(modifier = Modifier.fillMaxSize(), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
+         Icon(imageVector = Icons.Default.Warning, contentDescription = "", tint = Color.Red)
+         Text(text = " Something went wrong", color = Color.Red)
+     }
 }
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
