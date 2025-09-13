@@ -25,9 +25,10 @@ A modern Android weather application built with Jetpack Compose, MVVM architectu
 - **Animation**: Lottie
 
 ## 📱 Screenshots
-
-*(Screenshots will be added here)*
-
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+ ![img_3.png](img_3.png)
+![img_4.png](img_4.png)
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -41,7 +42,7 @@ A modern Android weather application built with Jetpack Compose, MVVM architectu
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/WeatherForecastApp.git
+   git clone https://github.com/vardhanyadav1714/WeatherForecastApp
    ```
 
 2. Open the project in Android Studio
@@ -108,10 +109,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Location permission is required for automatic location detection
 - The free tier of OpenWeatherMap API has rate limits
 
-## 📱 Download
-
-[![Download APK](https://img.shields.io/badge/Download-APK-brightgreen)](path/to/your/app-release.apk)
+## 📱 Download From Play Store
+https://play.google.com/store/apps/details?id=com.discoverthe.weatherforecastapp&hl=en_IN
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Vardhan Yadav
