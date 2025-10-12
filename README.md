@@ -110,8 +110,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - The free tier of OpenWeatherMap API has rate limits
 
 ## 📱 Download From Play Store
-https://play.google.com/store/apps/details?id=com.discoverthe.weatherforecastapp&hl=en_IN
-
+https://play.google.com/store/apps/details?id=com.yummybiteadmin.foodapp&hl=en_IN
 ---
 
 Made with ❤️ by Vardhan Yadav
